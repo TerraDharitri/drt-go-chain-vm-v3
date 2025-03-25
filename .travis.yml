@@ -56,17 +56,17 @@ before_deploy:
 - mkdir -p $TRAVIS_BUILD_DIR/travis-builds
 - cd "$TRAVIS_BUILD_DIR/build"
 - tar czvf "$TRAVIS_BUILD_DIR/travis-builds/$ARCHIVE" *
-- echo "Will deploy to Amazon S3 (https://ide.numbat.com):"
+- echo "Will deploy to Amazon S3 (https://ide.dharitri.org):"
 - echo $ARCHIVE
 deploy:
   provider: s3
   access_key_id: $AWS_KEY_ID
   secret_access_key: $AWS_SECRET_KEY
-  bucket: ide.numbat.com
+  bucket: ide.dharitri.org
   skip_cleanup: true
   local-dir: $TRAVIS_BUILD_DIR/travis-builds
   upload-dir: travis-builds
   on:
     branch: 
-      - master
+      - main
       - andestools*

@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	twos "github.com/TerraDharitri/drt-go-bigint/twos-complement"
 	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/vmhost"
+	twos "github.com/TerraDharitri/drt-go-bigint/twos-complement"
 	"github.com/stretchr/testify/require"
 )
 

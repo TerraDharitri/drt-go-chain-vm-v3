@@ -5,7 +5,7 @@ import (
 	"math/big"
 
 	"github.com/TerraDharitri/drt-go-chain-core/data/dcdt"
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 )
 
 var _ vmcommon.BlockchainHook = (*BlockchainHookStub)(nil)

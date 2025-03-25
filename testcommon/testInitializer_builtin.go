@@ -3,7 +3,7 @@ package testcommon
 import (
 	"errors"
 
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 )
 
 // MockBuiltin defined the functions that can be replaced in order to mock a builtin

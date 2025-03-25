@@ -3,7 +3,7 @@ package vmserver
 import (
 	"math/big"
 
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 )
 
 // RequestBase is a CLI / REST request message

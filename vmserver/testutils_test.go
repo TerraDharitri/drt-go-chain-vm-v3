@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/TerraDharitri/drt-go-chain-core/data/vm"
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 	"github.com/stretchr/testify/require"
 )
 

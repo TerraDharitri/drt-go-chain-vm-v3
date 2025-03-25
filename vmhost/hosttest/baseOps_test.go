@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/testcommon"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/vmhost"
 	"github.com/stretchr/testify/assert"

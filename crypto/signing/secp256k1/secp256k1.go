@@ -1,11 +1,11 @@
 package secp256k1
 
 import (
-	"github.com/TerraDharitri/drt-go-chain-vm-v3/crypto/hashing"
-	"github.com/TerraDharitri/drt-go-chain-vm-v3/crypto/signing"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/TerraDharitri/drt-go-chain-vm-v3/crypto/hashing"
+	"github.com/TerraDharitri/drt-go-chain-vm-v3/crypto/signing"
 )
 
 type MessageHashType uint8
@@ -53,8 +53,7 @@ func (sec *secp256k1) VerifySecp256k1(key, msg, sig []byte, hashType uint8) erro
 
 // EncodeSecp256k1DERSignature creates a DER encoding of a signature provided with r and s.
 // Useful when having the plain params - like in the case of ecrecover
-//
-//	from ethereum
+//  from ethereum
 func (sec *secp256k1) EncodeSecp256k1DERSignature(r, s []byte) []byte {
 	rScalar := &btcec.ModNScalar{}
 	rScalar.SetByteSlice(r)

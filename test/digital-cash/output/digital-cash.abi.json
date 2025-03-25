@@ -1,0 +1,304 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.84.1",
+            "commitHash": "e71f9a9a98b0faf423844bf0ba7438f29dc27d58",
+            "commitDate": "2025-01-27",
+            "channel": "Stable",
+            "short": "rustc 1.84.1 (e71f9a9a9 2025-01-27)"
+        },
+        "contractCrate": {
+            "name": "digital-cash",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "dharitri-sc",
+            "version": "1.0.1"
+        }
+    },
+    "name": "DigitalCash",
+    "constructor": {
+        "inputs": [
+            {
+                "name": "fee",
+                "type": "BigUint"
+            },
+            {
+                "name": "token",
+                "type": "RewaOrDcdtTokenIdentifier"
+            }
+        ],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "whitelistFeeToken",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "fee",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "token",
+                    "type": "RewaOrDcdtTokenIdentifier"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "blacklistFeeToken",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "RewaOrDcdtTokenIdentifier"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "claimFees",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "getAmount",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "token",
+                    "type": "RewaOrDcdtTokenIdentifier"
+                },
+                {
+                    "name": "nonce",
+                    "type": "u64"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "payFeeAndFundDCDT",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "valability",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "payFeeAndFundREWA",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "REWA"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "valability",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "fund",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "valability",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "depositFees",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "REWA"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "withdraw",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "claim",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "signature",
+                    "type": "array64<u8>"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "forward",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "forward_address",
+                    "type": "Address"
+                },
+                {
+                    "name": "signature",
+                    "type": "array64<u8>"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "deposit",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "donor",
+                    "type": "Address"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "DepositInfo"
+                }
+            ]
+        }
+    ],
+    "dcdtAttributes": [],
+    "hasCallback": false,
+    "types": {
+        "DcdtTokenPayment": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "token_identifier",
+                    "type": "TokenIdentifier"
+                },
+                {
+                    "name": "token_nonce",
+                    "type": "u64"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ]
+        },
+        "DepositInfo": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "depositor_address",
+                    "type": "Address"
+                },
+                {
+                    "name": "dcdt_funds",
+                    "type": "List<DcdtTokenPayment>"
+                },
+                {
+                    "name": "rewa_funds",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "valability",
+                    "type": "u64"
+                },
+                {
+                    "name": "expiration_round",
+                    "type": "u64"
+                },
+                {
+                    "name": "fees",
+                    "type": "Fee"
+                }
+            ]
+        },
+        "Fee": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "num_token_to_transfer",
+                    "type": "u32"
+                },
+                {
+                    "name": "value",
+                    "type": "RewaOrDcdtTokenPayment"
+                }
+            ]
+        },
+        "RewaOrDcdtTokenPayment": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "token_identifier",
+                    "type": "RewaOrDcdtTokenIdentifier"
+                },
+                {
+                    "name": "token_nonce",
+                    "type": "u64"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ]
+        }
+    }
+}

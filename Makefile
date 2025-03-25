@@ -121,24 +121,24 @@ build-delegation:
 ifndef SANDBOX
 	$(error SANDBOX variable is undefined)
 endif
-	rm -rf ${SANDBOX}/drt-rs-sc-delegation
-	git clone --depth=1 --branch=master https://github.com/TerraDharitri/drt-rs-sc-delegation.git ${SANDBOX}/drt-rs-sc-delegation
-	rm -rf ${SANDBOX}/drt-rs-sc-delegation/.git
-	drtpy contract build ${SANDBOX}/drt-rs-sc-delegation
-	drtpy contract test --directory="tests" ${SANDBOX}/drt-rs-sc-delegation
-	cp ${SANDBOX}/drt-rs-sc-delegation/output/delegation.wasm ./test/delegation/delegation.wasm
+	rm -rf ${SANDBOX}/sc-delegation-rs
+	git clone --depth=1 --branch=main https://github.com/TerraDharitri/drt-sc-delegation.git ${SANDBOX}/sc-delegation-rs
+	rm -rf ${SANDBOX}/sc-delegation-rs/.git
+	drtpy contract build ${SANDBOX}/sc-delegation-rs
+	drtpy contract test --directory="tests" ${SANDBOX}/sc-delegation-rs
+	cp ${SANDBOX}/sc-delegation-rs/output/delegation.wasm ./test/delegation/delegation.wasm
 
 
 build-dns:
 ifndef SANDBOX
 	$(error SANDBOX variable is undefined)
 endif
-	rm -rf ${SANDBOX}/drt-rs-sc-dns
-	git clone --depth=1 --branch=master https://github.com/TerraDharitri/drt-rs-sc-dns.git ${SANDBOX}/drt-rs-sc-dns
-	rm -rf ${SANDBOX}/drt-rs-sc-dns/.git
-	drtpy contract build ${SANDBOX}/drt-rs-sc-dns
-	drtpy contract test --directory="tests" ${SANDBOX}/drt-rs-sc-dns
-	cp ${SANDBOX}/drt-rs-sc-dns/output/dns.wasm ./test/dns/dns.wasm
+	rm -rf ${SANDBOX}/sc-dns-rs
+	git clone --depth=1 --branch=main https://github.com/TerraDharitri/drt-sc-dns.git ${SANDBOX}/sc-dns-rs
+	rm -rf ${SANDBOX}/sc-dns-rs/.git
+	drtpy contract build ${SANDBOX}/sc-dns-rs
+	drtpy contract test --directory="tests" ${SANDBOX}/sc-dns-rs
+	cp ${SANDBOX}/sc-dns-rs/output/dns.wasm ./test/dns/dns.wasm
 
 
 build-sc-examples:

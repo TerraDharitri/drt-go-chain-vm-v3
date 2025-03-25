@@ -2453,14 +2453,14 @@ func TestExecution_AsyncCall(t *testing.T) {
 	// Scenario
 	// Parent SC calls Child SC
 	// Before asyncCall, Parent sets storage, makes a value transfer to ThirdParty and finishes some data
-	// Parent performs asyncCall to Child with a sufficient amount of DRT, with arguments:
+	// Parent performs asyncCall to Child with a sufficient amount of REWAAA, with arguments:
 	//	* the address of ThirdParty
-	//	* number of DRT the Child should send to ThirdParty
+	//	* number of REWA the Child should send to ThirdParty
 	//  * a string, to be set as the data on the transfer to ThirdParty
 	// Child stores the received arguments to storage
 	// Child performs two transfers:
-	//	* to ThirdParty, sending the amount of DRT specified as argument in asyncCall
-	//	* to the Vault, a fixed address known by the Child, sending exactly 4 DRT with the data provided by Parent
+	//	* to ThirdParty, sending the amount of REWA specified as argument in asyncCall
+	//	* to the Vault, a fixed address known by the Child, sending exactly 4 REWA with the data provided by Parent
 	// Child finishes with "thirdparty" if the transfer to ThirdParty was successful
 	// Child finishes with "vault" if the transfer to Vault was successful
 	// Parent callBack() verifies its arguments and expects both "thirdparty" and "vault"
@@ -2523,7 +2523,7 @@ func TestExecution_AsyncCall_ChildFails(t *testing.T) {
 	// Scenario
 	// Identical to TestExecution_AsyncCall(), except that the child is
 	// instructed to call signalError().
-	// Because "vault" was not received by the callBack(), the Parent sends 4 DRT
+	// Because "vault" was not received by the callBack(), the Parent sends 4 REWA
 	// to the Vault directly.
 
 	// Call parentFunctionChildCall() of the parent SC, which will call the child

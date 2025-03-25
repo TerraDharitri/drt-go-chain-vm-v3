@@ -3,7 +3,7 @@ package testcommon
 import (
 	"testing"
 
-	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
+	"github.com/TerraDharitri/drt-go-chain-vm-common"
 	contextmock "github.com/TerraDharitri/drt-go-chain-vm-v3/mock/context"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/vmhost"
 )

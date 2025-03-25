@@ -61,10 +61,10 @@ import (
 	"math/big"
 	"unsafe"
 
-	twos "github.com/TerraDharitri/drt-go-bigint/twos-complement"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/math"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/vmhost"
 	"github.com/TerraDharitri/drt-go-chain-vm-v3/vmhost/vmhooksmeta"
+	twos "github.com/TerraDharitri/drt-go-bigint/twos-complement"
 )
 
 const (
